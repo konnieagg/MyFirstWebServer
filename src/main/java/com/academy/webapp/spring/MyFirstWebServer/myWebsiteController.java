@@ -1,10 +1,12 @@
 package com.academy.webapp.spring.MyFirstWebServer;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.swing.*;
 
@@ -33,6 +35,26 @@ public class myWebsiteController {
                 "</form>");
 
     }
+
+    // Language variable, and controller
+    private Language language;
+    @Autowired
+    public myWebsiteController(Language language) {
+        this.language = language;
+    }
+
+
+    // Language GET
+    @GetMapping ("/greeting")
+    @ResponseBody
+
+    public ResponseEntity<String> getLang (@RequestParam String name , String lang) {
+        Counter counter = new Counter();
+
+        return ResponseEntity.ok(language.languageSelector(lang) + name + "! "+ "Times called for " + name + ": " + counter.counter(name));
+    }
+
+
 
 
 }
