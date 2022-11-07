@@ -16,7 +16,10 @@ public class myWebsiteController {
 
     public ResponseEntity<String> greetings (@RequestParam String name , String food) {
 
-        return ResponseEntity.ok("Hello "  + name + "! Enjoy your " + food);
+        return ResponseEntity.ok("Hello "  + name + "! Enjoy your " + food +
+                "<form action=\"/\" method=\"GET\">\n" +
+                "<button>Back</button>\n" +
+                "</form>");
 
     }
     @GetMapping ("/")
@@ -30,10 +33,6 @@ public class myWebsiteController {
                 "</form>");
 
     }
-
-
-
-
 
 
 }
