@@ -4,9 +4,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class Counter {
+    private static Integer counter = 0;
+    public static int counter(){
 
-    public int counter(String name){
-        int counter = 0;
-        return counter + 1;
+        return counter += 1;
     }
 }

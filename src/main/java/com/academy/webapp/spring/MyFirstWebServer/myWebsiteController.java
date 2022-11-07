@@ -43,15 +43,19 @@ public class myWebsiteController {
         this.language = language;
     }
 
+    private int counter = 0; //This is another solution without making a new class
 
     // Language GET
     @GetMapping ("/greeting")
     @ResponseBody
 
-    public ResponseEntity<String> getLang (@RequestParam String name , String lang) {
-        Counter counter = new Counter();
 
-        return ResponseEntity.ok(language.languageSelector(lang) + name + "! "+ "Times called for " + name + ": " + counter.counter(name));
+    public ResponseEntity<String> getLang (@RequestParam String name , String lang) {
+
+        counter += 1; //This is another solution without making a new class, and you can just print this out
+        return ResponseEntity.ok(language.languageSelector(lang) + name + "! "
+                + language.languageSelectorTimes(lang) + name + ": " + " "
+                + Counter.counter());
     }
 
 
