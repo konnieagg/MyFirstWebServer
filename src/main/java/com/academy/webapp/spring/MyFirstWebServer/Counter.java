@@ -8,7 +8,7 @@ import java.util.Map;
 
 @Service
 public class Counter {
-    //private static Integer counter = 0;
+
     private static Map<String, Integer> nameCountMap= new HashMap<String , Integer>();
 
     public static int counter(String name){
@@ -20,10 +20,4 @@ public class Counter {
 
         return counter;
     }
-
-
-
-
-
-
 }
