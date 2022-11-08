@@ -18,7 +18,7 @@ public class Language {
         if (lang.equals("hun")){
             return "Próbálkozások száma erre a névre ";
         } else if (lang.equals("gr")){
-            return "Οι καιροί απαιτούσαν ";
+            return "Φορές για ";
         }
         return "Times called for ";
     }

@@ -33,7 +33,12 @@ public class myWebsiteController {
                 "<input name=\"food\" placeholder=\"A meal\">\n" +
                 "<button>Go</button>\n" +
                 "</form>");
+    }
 
+    @GetMapping ("/hi")
+
+    public ResponseEntity<String> anotherGreeting (@RequestParam String name) {
+        return ResponseEntity.ok("My name is "  + name );
     }
 
     // Language variable, and controller
@@ -55,7 +60,7 @@ public class myWebsiteController {
         counter += 1; //This is another solution without making a new class, and you can just print this out
         return ResponseEntity.ok(language.languageSelector(lang) + name + "! "
                 + language.languageSelectorTimes(lang) + name + ": " + " "
-                + Counter.counter());
+               + Counter.counter(name) );
     }
 
 
