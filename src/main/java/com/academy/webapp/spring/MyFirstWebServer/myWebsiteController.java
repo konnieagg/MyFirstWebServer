@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.swing.*;
-
 
 @Controller
 public class myWebsiteController {
@@ -42,13 +40,13 @@ public class myWebsiteController {
     }
 
     // Language variable, and controller
-    private Language language;
+    private final LanguageService languageService;
+    private final CounterService counterService;
     @Autowired
-    public myWebsiteController(Language language) {
-        this.language = language;
+    public myWebsiteController(LanguageService languageService, CounterService counterService) {
+        this.languageService = languageService;
+        this.counterService = counterService;
     }
-
-    private int counter = 0; //This is another solution without making a new class
 
     // Language GET
     @GetMapping ("/greeting")
@@ -57,10 +55,9 @@ public class myWebsiteController {
 
     public ResponseEntity<String> getLang (@RequestParam String name , String lang) {
 
-        counter += 1; //This is another solution without making a new class, and you can just print this out
-        return ResponseEntity.ok(language.languageSelector(lang) + name + "! "
-                + language.languageSelectorTimes(lang) + name + ": " + " "
-               + Counter.counter(name) );
+        return ResponseEntity.ok(languageService.languageSelector(lang) + name + "! "
+                + languageService.languageSelectorTimes(lang) + name + ": " + " "
+               + counterService.counter(name));
     }
 
 

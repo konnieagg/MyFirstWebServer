@@ -7,11 +7,12 @@ import java.util.Map;
 
 
 @Service
-public class Counter {
+public class CounterServiceImpl implements CounterService {
 
     private static Map<String, Integer> nameCountMap= new HashMap<String , Integer>();
 
-    public static int counter(String name){
+    @Override
+    public int counter(String name){
         Integer counter = nameCountMap.get(name);
         if (counter==null) {
             counter=1;

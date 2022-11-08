@@ -3,8 +3,9 @@ package com.academy.webapp.spring.MyFirstWebServer;
 import org.springframework.stereotype.Service;
 
 @Service
-public class Language {
+public class LanguageServiceImpl implements LanguageService {
 
+    @Override
     public String languageSelector(String lang){
         if (lang.equals("hun")){
             return "A nevem  ";
@@ -13,7 +14,7 @@ public class Language {
         }
         return "My name is ";
     }
-
+    @Override
     public String languageSelectorTimes(String lang){
         if (lang.equals("hun")){
             return "Próbálkozások száma erre a névre ";
